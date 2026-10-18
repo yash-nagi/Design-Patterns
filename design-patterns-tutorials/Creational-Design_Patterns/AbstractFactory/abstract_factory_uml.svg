@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1090" height="780" viewBox="0 0 1090 780" font-family="Helvetica,Arial,sans-serif">
+<defs>
+<marker id="tri" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#fff" stroke="#374151" stroke-width="1.4"/></marker>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#111827" stroke-width="1.4"/></marker>
+</defs>
+<rect width="1090" height="780" fill="#ffffff"/>
+<text x="30" y="16" font-size="15" font-weight="700" fill="#111827" transform="translate(0,0)"></text>
+<rect x="30" y="35" width="230" height="88" rx="3" fill="#f9fafb" stroke="#374151" stroke-width="1.6"/>
+<text x="145.0" y="53" text-anchor="middle" font-size="11" fill="#374151">Clients</text>
+<text x="145.0" y="69" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">IosUser / AndroidUser</text>
+<line x1="30" y1="79" x2="260" y2="79" stroke="#374151" stroke-width="1.2"/>
+<text x="38" y="94" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+BuyIosProducts()</text>
+<text x="38" y="111" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+BuyAndroidProducts()</text>
+<rect x="420" y="20" width="300" height="105" rx="3" fill="#f9fafb" stroke="#374151" stroke-width="1.6"/>
+<text x="570.0" y="38" text-anchor="middle" font-size="11" fill="#374151">«interface» Abstract Factory</text>
+<text x="570.0" y="54" text-anchor="middle" font-size="13" font-weight="700" fill="#111827" font-style="italic">IPhoneEcosystem</text>
+<line x1="420" y1="64" x2="720" y2="64" stroke="#374151" stroke-width="1.2"/>
+<text x="428" y="79" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreatePhone() : IPhone</text>
+<text x="428" y="96" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateBuds() : IEarbuds</text>
+<text x="428" y="113" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateWatch() : IWatch</text>
+<rect x="240" y="200" width="280" height="105" rx="3" fill="#f9fafb" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="380.0" y="218" text-anchor="middle" font-size="11" fill="#374151">Concrete Factory</text>
+<text x="380.0" y="234" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">AppleCompanyFactory</text>
+<line x1="240" y1="244" x2="520" y2="244" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="248" y="259" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreatePhone() : IPhone</text>
+<text x="248" y="276" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateBuds() : IEarbuds</text>
+<text x="248" y="293" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateWatch() : IWatch</text>
+<rect x="630" y="200" width="280" height="105" rx="3" fill="#f9fafb" stroke="#c2410c" stroke-width="1.6"/>
+<text x="770.0" y="218" text-anchor="middle" font-size="11" fill="#374151">Concrete Factory</text>
+<text x="770.0" y="234" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">SamsungCompanyFactory</text>
+<line x1="630" y1="244" x2="910" y2="244" stroke="#c2410c" stroke-width="1.2"/>
+<text x="638" y="259" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreatePhone() : IPhone</text>
+<text x="638" y="276" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateBuds() : IEarbuds</text>
+<text x="638" y="293" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateWatch() : IWatch</text>
+<rect x="130" y="400" width="140" height="88" rx="3" fill="#f9fafb" stroke="#374151" stroke-width="1.6"/>
+<text x="200.0" y="418" text-anchor="middle" font-size="11" fill="#374151">«interface»</text>
+<text x="200.0" y="434" text-anchor="middle" font-size="13" font-weight="700" fill="#111827" font-style="italic">IPhone</text>
+<line x1="130" y1="444" x2="270" y2="444" stroke="#374151" stroke-width="1.2"/>
+<text x="138" y="459" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="138" y="476" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakeCall()</text>
+<rect x="30" y="600" width="140" height="72" rx="3" fill="#f9fafb" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="100.0" y="618" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">ApplePhone</text>
+<line x1="30" y1="628" x2="170" y2="628" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="38" y="643" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="38" y="660" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakeCall()</text>
+<rect x="220" y="600" width="140" height="72" rx="3" fill="#f9fafb" stroke="#c2410c" stroke-width="1.6"/>
+<text x="290.0" y="618" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">SamsungPhone</text>
+<line x1="220" y1="628" x2="360" y2="628" stroke="#c2410c" stroke-width="1.2"/>
+<text x="228" y="643" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="228" y="660" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakeCall()</text>
+<path d="M140,600 V560 H200 V490" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#tri)"/>
+<path d="M250,600 V560 H200" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M70,360 V598" fill="none" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<path d="M330,335 V598" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<rect x="470" y="400" width="140" height="88" rx="3" fill="#f9fafb" stroke="#374151" stroke-width="1.6"/>
+<text x="540.0" y="418" text-anchor="middle" font-size="11" fill="#374151">«interface»</text>
+<text x="540.0" y="434" text-anchor="middle" font-size="13" font-weight="700" fill="#111827" font-style="italic">IEarbuds</text>
+<line x1="470" y1="444" x2="610" y2="444" stroke="#374151" stroke-width="1.2"/>
+<text x="478" y="459" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="478" y="476" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+PlayMusic()</text>
+<rect x="370" y="600" width="140" height="72" rx="3" fill="#f9fafb" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="440.0" y="618" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">AppleEarbuds</text>
+<line x1="370" y1="628" x2="510" y2="628" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="378" y="643" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="378" y="660" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+PlayMusic()</text>
+<rect x="560" y="600" width="140" height="72" rx="3" fill="#f9fafb" stroke="#c2410c" stroke-width="1.6"/>
+<text x="630.0" y="618" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">SamsungEarbuds</text>
+<line x1="560" y1="628" x2="700" y2="628" stroke="#c2410c" stroke-width="1.2"/>
+<text x="568" y="643" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="568" y="660" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+PlayMusic()</text>
+<path d="M480,600 V560 H540 V490" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#tri)"/>
+<path d="M590,600 V560 H540" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M410,360 V598" fill="none" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<path d="M670,335 V598" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<rect x="810" y="400" width="140" height="88" rx="3" fill="#f9fafb" stroke="#374151" stroke-width="1.6"/>
+<text x="880.0" y="418" text-anchor="middle" font-size="11" fill="#374151">«interface»</text>
+<text x="880.0" y="434" text-anchor="middle" font-size="13" font-weight="700" fill="#111827" font-style="italic">IWatch</text>
+<line x1="810" y1="444" x2="950" y2="444" stroke="#374151" stroke-width="1.2"/>
+<text x="818" y="459" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="818" y="476" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Track()</text>
+<rect x="710" y="600" width="140" height="72" rx="3" fill="#f9fafb" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="780.0" y="618" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">AppleWatch</text>
+<line x1="710" y1="628" x2="850" y2="628" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="718" y="643" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="718" y="660" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Track()</text>
+<rect x="900" y="600" width="140" height="72" rx="3" fill="#f9fafb" stroke="#c2410c" stroke-width="1.6"/>
+<text x="970.0" y="618" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">SamsungWatch</text>
+<line x1="900" y1="628" x2="1040" y2="628" stroke="#c2410c" stroke-width="1.2"/>
+<text x="908" y="643" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Model : string</text>
+<text x="908" y="660" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Track()</text>
+<path d="M820,600 V560 H880 V490" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#tri)"/>
+<path d="M930,600 V560 H880" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M750,360 V598" fill="none" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<path d="M1010,335 V598" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<path d="M380,305 V360" fill="none" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M70,360 H750" fill="none" stroke="#1d4ed8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M760,305 V335" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M330,335 H1010" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="392" y="353" text-anchor="start" font-size="11" font-style="italic" fill="#1d4ed8">«creates»</text>
+<text x="772" y="328" text-anchor="start" font-size="11" font-style="italic" fill="#c2410c">«creates»</text>
+<path d="M380,200 V162 H570 V126" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#tri)"/>
+<path d="M760,200 V162 H570" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M260,70 H418" fill="none" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="340" y="62" text-anchor="middle" font-size="11" font-style="italic" fill="#374151">uses</text>
+<path d="M200,107 V398" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="208" y="260" text-anchor="start" font-size="11" font-style="italic" fill="#374151">uses</text>
+<line x1="30" y1="735" x2="64" y2="735" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#tri)"/><text x="74" y="739" font-size="11" fill="#374151">implements (realization)</text>
+<line x1="250" y1="735" x2="284" y2="735" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/><text x="294" y="739" font-size="11" fill="#374151">association</text>
+<line x1="400" y1="735" x2="434" y2="735" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/><text x="444" y="739" font-size="11" fill="#374151">dependency / creates</text>
+<rect x="620" y="727" width="14" height="14" fill="#f9fafb" stroke="#1d4ed8" stroke-width="1.6"/><text x="640" y="739" font-size="11" fill="#374151">Apple family</text>
+<rect x="740" y="727" width="14" height="14" fill="#f9fafb" stroke="#c2410c" stroke-width="1.6"/><text x="760" y="739" font-size="11" fill="#374151">Samsung family</text>
+<text x="30" y="765" font-size="11" fill="#6b7280">Clients select a concrete factory, then use products through IPhone, IEarbuds, and IWatch interfaces.</text>
+</svg>

@@ -1,3 +1,4 @@
 .vscode/
 design-patterns-tutorials/bin/
 design-patterns-tutorials/obj/
+.DS_Store
