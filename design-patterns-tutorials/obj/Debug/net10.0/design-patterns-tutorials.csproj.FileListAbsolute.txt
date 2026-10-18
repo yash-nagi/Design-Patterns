@@ -1,0 +1,14 @@
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/bin/Debug/net10.0/design-patterns-tutorials
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/bin/Debug/net10.0/design-patterns-tutorials.deps.json
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/bin/Debug/net10.0/design-patterns-tutorials.runtimeconfig.json
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/bin/Debug/net10.0/design-patterns-tutorials.dll
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/bin/Debug/net10.0/design-patterns-tutorials.pdb
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/design-patterns-tutorials.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/design-patterns-tutorials.AssemblyInfoInputs.cache
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/design-patterns-tutorials.AssemblyInfo.cs
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/design-patterns-tutorials.csproj.CoreCompileInputs.cache
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/design-patterns-tutorials.dll
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/refint/design-patterns-tutorials.dll
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/design-patterns-tutorials.pdb
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/design-patterns-tutorials.genruntimeconfig.cache
+/Users/yashnagi/Projects/Design Patterns/design-patterns-tutorials/obj/Debug/net10.0/ref/design-patterns-tutorials.dll
