@@ -14,3 +14,7 @@ iosUser.BuyIosProducts();
 
 AndroidUser androidUser = new AndroidUser();
 androidUser.BuyAndroidProducts();
+
+// Builder design pattern
+Client client = new Client();
+client.GenerateEmail();
