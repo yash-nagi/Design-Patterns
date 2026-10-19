@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="570" viewBox="0 0 760 570">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M1,1 L9,5 L1,9" fill="none" stroke="#475569" stroke-width="1.4"></path>
+    </marker>
+    <style>
+      .class { fill: #f8fafc; stroke: #475569; stroke-width: 1.5; }
+      .header { fill: #dbeafe; stroke: #475569; stroke-width: 1.5; }
+      .line { stroke: #475569; stroke-width: 1.2; }
+      .text { font-family: Arial, sans-serif; font-size: 13px; fill: #0f172a; }
+      .name { font-family: Arial, sans-serif; font-size: 16px;
+              font-weight: bold; fill: #0f172a; }
+      .note { font-family: Arial, sans-serif; font-size: 12px; fill: #334155; }
+    </style>
+  </defs>
+
+  <!-- Client -->
+  <rect class="class" x="250" y="20" width="260" height="75" rx="4"></rect>
+  <rect class="header" x="250" y="20" width="260" height="32" rx="4"></rect>
+  <text class="name" x="380" y="41" text-anchor="middle">Client</text>
+  <text class="text" x="265" y="72">+ GenerateEmail() : void</text>
+
+  <!-- Client uses Builder -->
+  <path d="M380 95 V130" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"></path>
+  <text class="note" x="390" y="115">uses</text>
+
+  <!-- Builder -->
+  <rect class="class" x="130" y="132" width="500" height="248" rx="4"></rect>
+  <rect class="header" x="130" y="132" width="500" height="34" rx="4"></rect>
+  <text class="name" x="380" y="154" text-anchor="middle">
+    EmailMessageBuilder
+  </text>
+
+  <line class="line" x1="130" y1="166" x2="630" y2="166"></line>
+  <text class="text" x="145" y="186">- to : string</text>
+  <text class="text" x="145" y="204">- from : string</text>
+  <text class="text" x="145" y="222">- subject : string</text>
+  <text class="text" x="145" y="240">- body : string</text>
+  <text class="text" x="390" y="186">- attachments : List&lt;string&gt;</text>
+  <text class="text" x="390" y="204">- cc : string</text>
+  <text class="text" x="390" y="222">- bcc : string</text>
+
+  <line class="line" x1="130" y1="250" x2="630" y2="250"></line>
+  <text class="text" x="145" y="270">+ SetTo() : EmailMessageBuilder</text>
+  <text class="text" x="145" y="289">+ SetFrom() : EmailMessageBuilder</text>
+  <text class="text" x="145" y="308">+ SetSubject() / SetBody()</text>
+  <text class="text" x="390" y="270">+ AddAttachment() : EmailMessageBuilder</text>
+  <text class="text" x="390" y="289">+ SetCc() / SetBcc()</text>
+  <text class="text" x="390" y="308">+ Get...() : property values</text>
+  <text class="text" x="145" y="348" font-weight="bold">
+    + Build() : EmailMessage
+  </text>
+
+  <!-- Builder creates product -->
+  <path d="M380 380 V425" fill="none" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"></path>
+  <text class="note" x="390" y="407">creates</text>
+
+  <!-- Product -->
+  <rect class="class" x="190" y="427" width="380" height="115" rx="4"></rect>
+  <rect class="header" x="190" y="427" width="380" height="34" rx="4"></rect>
+  <text class="name" x="380" y="449" text-anchor="middle">
+    EmailMessage
+  </text>
+  <line class="line" x1="190" y1="461" x2="570" y2="461"></line>
+  <text class="text" x="205" y="480">- to, from, subject, body : string</text>
+  <text class="text" x="205" y="498">- attachments : List&lt;string&gt;</text>
+  <text class="text" x="205" y="516">- cc, bcc : string</text>
+  <text class="text" x="205" y="533">+ DisplayEmail() : void</text>
+</svg>
