@@ -139,10 +139,6 @@ The method assigns the recipient address and returns `this`, which refers to the
 
 The other methods follow the same approach. `AddAttachment()` adds an item to the attachment collection, while `SetCc()` and `SetBcc()` configure optional recipients.
 
-## UML Diagram
-
-![Builder Pattern UML Diagram](builder-design-pattern-example.svg)
-
 #### The Build() method
 
 ```csharp
@@ -180,6 +176,10 @@ The getter methods expose these values, and `DisplayEmail()` prints the email de
 The `if` conditions ensure that attachments, CC, and BCC are displayed only when they contain values.
 
 **Important implementation detail:** Although the email fields are `readonly`, the attachment list is still mutable. Also, `GetAttachments()` returns the same list held by the builder. If you want a more robust immutable product, copy the list during construction and expose it through a read-only collection.
+
+## UML Diagram
+
+![Builder Pattern UML Diagram](builder-design-pattern-example.svg)
 
 ## 🔄 Execution Flow
 
