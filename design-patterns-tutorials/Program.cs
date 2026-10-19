@@ -18,3 +18,11 @@ androidUser.BuyAndroidProducts();
 // Builder design pattern
 Client client = new Client();
 client.GenerateEmail();
+
+// Prototype Design Pattern
+CreateDatabaseConnection createConnection = new CreateDatabaseConnection();
+var connections = createConnection.CreateConnection();
+foreach (var connection in connections)
+{
+    Console.WriteLine($"Connection String: {connection.GetConnectionString()}");
+}
