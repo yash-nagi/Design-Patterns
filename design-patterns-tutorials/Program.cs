@@ -26,3 +26,7 @@ foreach (var connection in connections)
 {
     Console.WriteLine($"Connection String: {connection.GetConnectionString()}");
 }
+
+// Structureal Design Patterns: Structural design patterns are used to create relationships between objects.
+// Adapter Design Pattern
+Application.DisplayEmployeeDetails();
