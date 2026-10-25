@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="700" viewBox="0 0 1100 700" font-family="Helvetica,Arial,sans-serif">
+<defs>
+<marker id="realization" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#fff" stroke="#374151" stroke-width="1.4"/></marker>
+<marker id="inheritance" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#fff" stroke="#1d4ed8" stroke-width="1.4"/></marker>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#111827" stroke-width="1.4"/></marker>
+<marker id="diamond" viewBox="0 0 14 10" refX="1" refY="5" markerWidth="14" markerHeight="10" orient="auto"><path d="M1,5 L7,1 L13,5 L7,9 Z" fill="#fff" stroke="#374151" stroke-width="1.4"/></marker>
+</defs>
+<rect width="1100" height="700" fill="#fff"/>
+<g fill="none" stroke="#374151" stroke-width="1.5">
+<path d="M170,240 V190 H550 V140" stroke-dasharray="6 4" marker-end="url(#realization)"/>
+<path d="M530,250 V190 H550 V140" stroke-dasharray="6 4" marker-end="url(#realization)"/>
+<path d="M930,250 V180 H720 V140" stroke-dasharray="6 4" marker-end="url(#realization)"/>
+<path d="M700,300 H760 V88 H722" stroke-width="2" marker-start="url(#diamond)" marker-end="url(#arrow)"/>
+<path d="M1070,330 H1085 V160 H720 V95" stroke-width="2" marker-start="url(#diamond)" marker-end="url(#arrow)"/>
+<path d="M445,470 V420 H490 V355" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#inheritance)"/>
+<path d="M795,470 V440 H570 V355" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#inheritance)"/>
+<path d="M255,105 H398" marker-end="url(#arrow)"/>
+<path d="M130,105 V238" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+</g>
+<g>
+<rect x="30" y="35" width="225" height="70" rx="3" fill="#fff" stroke="#374151" stroke-width="1.6"/>
+<text x="142.5" y="54" text-anchor="middle" font-size="11" fill="#374151">Client</text>
+<text x="142.5" y="72" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">CoffeeConsumer</text>
+<line x1="30" y1="82" x2="255" y2="82" stroke="#374151"/>
+<text x="40" y="98" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+OrderCofee() {static}</text>
+
+<rect x="400" y="35" width="320" height="105" rx="3" fill="#fff" stroke="#374151" stroke-width="1.6"/>
+<text x="560" y="54" text-anchor="middle" font-size="11" fill="#374151">«interface» Component</text>
+<text x="560" y="73" text-anchor="middle" font-size="14" font-weight="700" font-style="italic" fill="#111827">ICoffee</text>
+<line x1="400" y1="83" x2="720" y2="83" stroke="#374151"/>
+<text x="410" y="102" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetDescription() : string</text>
+<text x="410" y="122" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetCost() : double</text>
+
+<rect x="40" y="240" width="260" height="105" rx="3" fill="#fff" stroke="#374151" stroke-width="1.6"/>
+<text x="170" y="260" text-anchor="middle" font-size="11" fill="#374151">Concrete Component</text>
+<text x="170" y="279" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">Coffee</text>
+<line x1="40" y1="289" x2="300" y2="289" stroke="#374151"/>
+<text x="50" y="308" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetDescription() : string</text>
+<text x="50" y="328" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetCost() : double</text>
+
+<rect x="360" y="250" width="340" height="105" rx="3" fill="#fff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="530" y="270" text-anchor="middle" font-size="11" fill="#374151">Abstract Decorator</text>
+<text x="530" y="289" text-anchor="middle" font-size="14" font-weight="700" font-style="italic" fill="#111827">CoffeeDecorator</text>
+<line x1="360" y1="299" x2="700" y2="299" stroke="#1d4ed8"/>
+<text x="370" y="318" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+coffee : ICoffee</text>
+<text x="370" y="338" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetDescription(), +GetCost() {virtual}</text>
+
+<rect x="790" y="250" width="280" height="105" rx="3" fill="#fff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="930" y="270" text-anchor="middle" font-size="11" fill="#374151">Concrete Decorator</text>
+<text x="930" y="289" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">SugarDecorator</text>
+<line x1="790" y1="299" x2="1070" y2="299" stroke="#c2410c"/>
+<text x="800" y="318" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">-_coffee : ICoffee</text>
+<text x="800" y="338" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetDescription(), +GetCost()</text>
+
+<rect x="300" y="470" width="290" height="100" rx="3" fill="#fff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="445" y="490" text-anchor="middle" font-size="11" fill="#374151">Concrete Decorator</text>
+<text x="445" y="509" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">MilkDecorator</text>
+<line x1="300" y1="519" x2="590" y2="519" stroke="#1d4ed8"/>
+<text x="310" y="539" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MilkDecorator(coffee : ICoffee)</text>
+<text x="310" y="559" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetDescription(), +GetCost()</text>
+
+<rect x="650" y="470" width="290" height="100" rx="3" fill="#fff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="795" y="490" text-anchor="middle" font-size="11" fill="#374151">Concrete Decorator</text>
+<text x="795" y="509" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">CreamDecorator</text>
+<line x1="650" y1="519" x2="940" y2="519" stroke="#1d4ed8"/>
+<text x="660" y="539" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreamDecorator(coffee : ICoffee)</text>
+<text x="660" y="559" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+GetDescription(), +GetCost()</text>
+</g>
+<text x="765" y="77" text-anchor="end" font-size="11" font-style="italic" fill="#374151">wraps ICoffee</text>
+<text x="1075" y="152" text-anchor="end" font-size="11" font-style="italic" fill="#374151">_coffee</text>
+<text x="30" y="625" font-size="11.5" fill="#374151">SugarDecorator implements ICoffee directly; MilkDecorator and CreamDecorator inherit CoffeeDecorator.</text>
+<line x1="30" y1="660" x2="65" y2="660" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#realization)"/><text x="75" y="664" font-size="11" fill="#374151">implements</text>
+<line x1="200" y1="660" x2="235" y2="660" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#inheritance)"/><text x="245" y="664" font-size="11" fill="#374151">inherits</text>
+<line x1="350" y1="660" x2="385" y2="660" stroke="#374151" stroke-width="2" marker-start="url(#diamond)" marker-end="url(#arrow)"/><text x="400" y="664" font-size="11" fill="#374151">wraps / delegates to</text>
+</svg>

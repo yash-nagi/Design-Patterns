@@ -37,3 +37,6 @@ Customer.MakePayment(paymentGateway: "Axis", paymentMode: "DebitCard", amount: 2
 
 // Composite Design Pattern
 ShoppingCart.CheckOut();
+
+// Decorator Design Pattern
+CoffeeConsumer.OrderCofee();
