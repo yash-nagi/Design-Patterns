@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="800" viewBox="0 0 1080 800" font-family="Helvetica,Arial,sans-serif">
+<defs>
+<marker id="triA" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#fff" stroke="#1d4ed8" stroke-width="1.4"/></marker>
+<marker id="triS" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#fff" stroke="#c2410c" stroke-width="1.4"/></marker>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#111827" stroke-width="1.4"/></marker>
+<marker id="dia" viewBox="0 0 14 10" refX="1" refY="5" markerWidth="14" markerHeight="10" orient="auto"><path d="M1,5 L7,1 L13,5 L7,9 Z" fill="#fff" stroke="#374151" stroke-width="1.4"/></marker>
+</defs>
+<rect width="1080" height="800" fill="#ffffff"/>
+<rect x="70" y="350" width="330" height="335" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1" stroke-dasharray="3 3"/>
+<rect x="700" y="350" width="340" height="335" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="392" y="368" text-anchor="end" font-size="11.5" font-style="italic" fill="#1d4ed8">Refined Abstractions</text>
+<text x="712" y="368" text-anchor="start" font-size="11.5" font-style="italic" fill="#c2410c">Concrete Implementors</text>
+<rect x="370" y="30" width="340" height="71" rx="3" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<text x="540.0" y="48" text-anchor="middle" font-size="11" fill="#374151">Client</text>
+<text x="540.0" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">Customer</text>
+<line x1="370" y1="74" x2="710" y2="74" stroke="#374151" stroke-width="1.2"/>
+<text x="378" y="89" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakePayment(string, decimal, string) {static}</text>
+<rect x="60" y="190" width="300" height="88" rx="3" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="210.0" y="208" text-anchor="middle" font-size="11" fill="#374151">Abstraction</text>
+<text x="210.0" y="224" text-anchor="middle" font-size="13" font-weight="700" fill="#111827" font-style="italic">PaymentMode</text>
+<line x1="60" y1="234" x2="360" y2="234" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="68" y="249" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+paymentGateway : IPaymentGateWay</text>
+<text x="68" y="266" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakePayment(amount : decimal) {abstract}</text>
+<rect x="740" y="190" width="300" height="71" rx="3" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="890.0" y="208" text-anchor="middle" font-size="11" fill="#374151">«interface» Implementor</text>
+<text x="890.0" y="224" text-anchor="middle" font-size="13" font-weight="700" fill="#111827" font-style="italic">IPaymentGateWay</text>
+<line x1="740" y1="234" x2="1040" y2="234" stroke="#c2410c" stroke-width="1.2"/>
+<text x="748" y="249" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ProcessPayment(amount : decimal)</text>
+<rect x="130" y="395" width="250" height="55" rx="3" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="255.0" y="413" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">CreditCardPayment</text>
+<line x1="130" y1="423" x2="380" y2="423" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="138" y="438" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakePayment(amount : decimal)</text>
+<path d="M90,422 H130" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+<rect x="130" y="468" width="250" height="55" rx="3" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="255.0" y="486" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">DebitCardPayment</text>
+<line x1="130" y1="496" x2="380" y2="496" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="138" y="511" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakePayment(amount : decimal)</text>
+<path d="M90,495 H130" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+<rect x="130" y="541" width="250" height="55" rx="3" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="255.0" y="559" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">NetBankingPayment</text>
+<line x1="130" y1="569" x2="380" y2="569" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="138" y="584" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakePayment(amount : decimal)</text>
+<path d="M90,568 H130" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+<rect x="130" y="614" width="250" height="55" rx="3" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="255.0" y="632" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">UpiPayment</text>
+<line x1="130" y1="642" x2="380" y2="642" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="138" y="657" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+MakePayment(amount : decimal)</text>
+<path d="M90,641 H130" fill="none" stroke="#1d4ed8" stroke-width="1.5"/>
+<rect x="720" y="395" width="250" height="55" rx="3" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="845.0" y="413" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">HDFCBankPaymentGateway</text>
+<line x1="720" y1="423" x2="970" y2="423" stroke="#c2410c" stroke-width="1.2"/>
+<text x="728" y="438" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ProcessPayment(amount : decimal)</text>
+<path d="M1010,422 H970" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="720" y="468" width="250" height="55" rx="3" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="845.0" y="486" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">SBIPaymentGateway</text>
+<line x1="720" y1="496" x2="970" y2="496" stroke="#c2410c" stroke-width="1.2"/>
+<text x="728" y="511" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ProcessPayment(amount : decimal)</text>
+<path d="M1010,495 H970" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="720" y="541" width="250" height="55" rx="3" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="845.0" y="559" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">AxisBankPaymentGateway</text>
+<line x1="720" y1="569" x2="970" y2="569" stroke="#c2410c" stroke-width="1.2"/>
+<text x="728" y="584" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ProcessPayment(amount : decimal)</text>
+<path d="M1010,568 H970" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4"/>
+<rect x="720" y="614" width="250" height="55" rx="3" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="845.0" y="632" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">UnionBankPaymentGateway</text>
+<line x1="720" y1="642" x2="970" y2="642" stroke="#c2410c" stroke-width="1.2"/>
+<text x="728" y="657" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ProcessPayment(amount : decimal)</text>
+<path d="M1010,641 H970" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M90,641 V280" fill="none" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#triA)"/>
+<path d="M1010,641 V263" fill="none" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#triS)"/>
+<path d="M362,243 H738" fill="none" stroke="#374151" stroke-width="2" marker-end="url(#arr)" marker-start="url(#dia)"/>
+<text x="450" y="236" text-anchor="middle" font-size="11.5" font-style="italic" fill="#374151">paymentGateway</text>
+<text x="640" y="236" text-anchor="middle" font-size="11.5" font-style="italic" fill="#374151">«bridge»</text>
+<text x="372" y="260" text-anchor="start" font-size="11" font-style="italic" fill="#374151">1</text>
+<text x="728" y="260" text-anchor="end" font-size="11" font-style="italic" fill="#374151">1</text>
+<path d="M370,75 H210 V188" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="218" y="130" text-anchor="start" font-size="11" font-style="italic" fill="#374151">«uses»</text>
+<path d="M710,75 H890 V188" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="882" y="130" text-anchor="end" font-size="11" font-style="italic" fill="#374151">«uses»</text>
+<path d="M540,103 V520" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4"/>
+<path d="M540,520 H402" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<path d="M540,520 H698" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="548" y="510" text-anchor="start" font-size="11" font-style="italic" fill="#374151">«creates» (switch)</text>
+<line x1="30" y1="730" x2="64" y2="730" stroke="#1d4ed8" stroke-width="1.5" marker-end="url(#triA)"/><text x="74" y="734" font-size="11" fill="#374151">inherits (generalization)</text>
+<line x1="240" y1="730" x2="274" y2="730" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#triS)"/><text x="284" y="734" font-size="11" fill="#374151">implements (realization)</text>
+<line x1="470" y1="730" x2="504" y2="730" stroke="#374151" stroke-width="2" marker-start="url(#dia)" marker-end="url(#arr)"/><text x="514" y="734" font-size="11" fill="#374151">has-a (aggregation)</text>
+<line x1="670" y1="730" x2="704" y2="730" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/><text x="714" y="734" font-size="11" fill="#374151">dependency</text>
+<text x="30" y="762" font-size="11" fill="#6b7280">Bridge: PaymentMode (abstraction) holds a reference to IPaymentGateWay (implementor), so 4 modes x 4 gateways = 16 combinations need only 8 concrete classes.</text>
+<text x="30" y="779" font-size="11" fill="#6b7280">Customer picks both with string switches and assigns the gateway through a public field after construction; a constructor parameter would make the bridge safer.</text>
+</svg>
