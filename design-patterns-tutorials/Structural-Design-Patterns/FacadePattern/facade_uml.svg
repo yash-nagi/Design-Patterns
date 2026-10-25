@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" font-family="Helvetica,Arial,sans-serif">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#374151" stroke-width="1.4"/></marker>
+<marker id="triangle" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1,1 L11,6 L1,11 Z" fill="#fff" stroke="#374151" stroke-width="1.4"/></marker>
+</defs>
+<rect width="1200" height="820" fill="#ffffff"/>
+
+<rect x="35" y="45" width="260" height="85" rx="4" fill="#f9fafb" stroke="#374151" stroke-width="1.6"/>
+<text x="165" y="65" text-anchor="middle" font-size="11" fill="#4b5563">Client</text>
+<text x="165" y="84" text-anchor="middle" font-size="15" font-weight="700" fill="#111827">StudentPortal</text>
+<line x1="35" y1="94" x2="295" y2="94" stroke="#374151"/>
+<text x="45" y="114" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ExploreServices() {static}</text>
+
+<rect x="390" y="45" width="390" height="145" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+<text x="585" y="65" text-anchor="middle" font-size="11" fill="#4b5563">Facade</text>
+<text x="585" y="84" text-anchor="middle" font-size="15" font-weight="700" fill="#111827">EducationFacade</text>
+<line x1="390" y1="94" x2="780" y2="94" stroke="#1d4ed8"/>
+<text x="405" y="112" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">-admission : AdmissionService; -fees : FeeService</text>
+<text x="405" y="130" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">-courses : CourseService; -library : LibraryService</text>
+<text x="405" y="148" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">-notifier : NotificationService</text>
+<text x="405" y="174" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">+EnrollStudent() : bool</text>
+
+<path d="M295,87 H388" fill="none" stroke="#374151" stroke-width="1.6" marker-end="url(#arrow)"/>
+<text x="340" y="78" text-anchor="middle" font-size="11" font-style="italic" fill="#374151">calls EnrollStudent()</text>
+
+<rect x="50" y="260" width="205" height="72" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="152.5" y="280" text-anchor="middle" font-size="11" fill="#4b5563">«interface»</text>
+<text x="152.5" y="299" text-anchor="middle" font-size="14" font-style="italic" font-weight="700" fill="#111827">IAdmissionService</text>
+<line x1="50" y1="309" x2="255" y2="309" stroke="#374151"/>
+<text x="60" y="326" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">VerifyDocuments(), CreateStudent()</text>
+<rect x="50" y="365" width="205" height="75" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="152.5" y="385" text-anchor="middle" font-size="11" fill="#4b5563">Subsystem</text>
+<text x="152.5" y="404" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">AdmissionService</text>
+<line x1="50" y1="414" x2="255" y2="414" stroke="#374151"/>
+<text x="60" y="432" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">Implements IAdmissionService</text>
+
+<rect x="275" y="260" width="205" height="72" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="377.5" y="280" text-anchor="middle" font-size="11" fill="#4b5563">«interface»</text>
+<text x="377.5" y="299" text-anchor="middle" font-size="14" font-style="italic" font-weight="700" fill="#111827">IFeeService</text>
+<line x1="275" y1="309" x2="480" y2="309" stroke="#374151"/>
+<text x="285" y="326" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">CollectFees(), GetPendingFees()</text>
+<rect x="275" y="365" width="205" height="75" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="377.5" y="385" text-anchor="middle" font-size="11" fill="#4b5563">Subsystem</text>
+<text x="377.5" y="404" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">FeeService</text>
+<line x1="275" y1="414" x2="480" y2="414" stroke="#374151"/>
+<text x="285" y="432" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">Implements IFeeService</text>
+
+<rect x="500" y="260" width="205" height="72" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="602.5" y="280" text-anchor="middle" font-size="11" fill="#4b5563">«interface»</text>
+<text x="602.5" y="299" text-anchor="middle" font-size="14" font-style="italic" font-weight="700" fill="#111827">ICourseService</text>
+<line x1="500" y1="309" x2="705" y2="309" stroke="#374151"/>
+<text x="510" y="326" font-size="11" font-family="Consolas,Menlo,monospace" fill="#1f2937">EnrollCourse(), GetCourse()</text>
+<rect x="500" y="365" width="205" height="75" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="602.5" y="385" text-anchor="middle" font-size="11" fill="#4b5563">Subsystem</text>
+<text x="602.5" y="404" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">CourseService</text>
+<line x1="500" y1="414" x2="705" y2="414" stroke="#374151"/>
+<text x="510" y="432" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">Implements ICourseService</text>
+
+<rect x="725" y="260" width="205" height="72" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="827.5" y="280" text-anchor="middle" font-size="11" fill="#4b5563">«interface»</text>
+<text x="827.5" y="299" text-anchor="middle" font-size="14" font-style="italic" font-weight="700" fill="#111827">ILibraryService</text>
+<line x1="725" y1="309" x2="930" y2="309" stroke="#374151"/>
+<text x="735" y="326" font-size="11" font-family="Consolas,Menlo,monospace" fill="#1f2937">IssusLibraryCard(), IssueBook()</text>
+<rect x="725" y="365" width="205" height="75" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="827.5" y="385" text-anchor="middle" font-size="11" fill="#4b5563">Subsystem</text>
+<text x="827.5" y="404" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">LibraryService</text>
+<line x1="725" y1="414" x2="930" y2="414" stroke="#374151"/>
+<text x="735" y="432" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">Implements ILibraryService</text>
+
+<rect x="950" y="260" width="220" height="72" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="1060" y="280" text-anchor="middle" font-size="11" fill="#4b5563">«interface»</text>
+<text x="1060" y="299" text-anchor="middle" font-size="14" font-style="italic" font-weight="700" fill="#111827">INotificationService</text>
+<line x1="950" y1="309" x2="1170" y2="309" stroke="#374151"/>
+<text x="960" y="326" font-size="11" font-family="Consolas,Menlo,monospace" fill="#1f2937">SendEmailNotification(), SendSMSNotification()</text>
+<rect x="950" y="365" width="220" height="75" rx="4" fill="#fff" stroke="#374151" stroke-width="1.5"/>
+<text x="1060" y="385" text-anchor="middle" font-size="11" fill="#4b5563">Subsystem</text>
+<text x="1060" y="404" text-anchor="middle" font-size="14" font-weight="700" fill="#111827">NotificationService</text>
+<line x1="950" y1="414" x2="1170" y2="414" stroke="#374151"/>
+<text x="960" y="432" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">Implements INotificationService</text>
+
+<g fill="none" stroke="#374151" stroke-width="1.4">
+<path d="M150,365 V345 H152 V334" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M375,365 V345 H378 V334" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M600,365 V345 H602 V334" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M825,365 V345 H827 V334" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M1060,365 V345 H1060 V334" stroke-dasharray="6 4" marker-end="url(#triangle)"/>
+<path d="M430,190 C360,215 150,220 150,363" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M470,190 C430,220 375,230 375,363" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M545,190 V363" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M625,190 C700,220 825,230 825,363" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+<path d="M700,190 C830,220 1060,220 1060,363" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+</g>
+
+<rect x="390" y="520" width="390" height="115" rx="4" fill="#f9fafb" stroke="#374151" stroke-width="1.5"/>
+<text x="585" y="543" text-anchor="middle" font-size="11" fill="#4b5563">Model</text>
+<text x="585" y="563" text-anchor="middle" font-size="15" font-weight="700" fill="#111827">Student</text>
+<line x1="390" y1="573" x2="780" y2="573" stroke="#374151"/>
+<text x="405" y="595" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">Id : int; Name : string; Course : string</text>
+<text x="405" y="616" font-size="12" font-family="Consolas,Menlo,monospace" fill="#1f2937">Fees : decimal</text>
+
+<text x="35" y="690" font-size="12" font-weight="700" fill="#111827">Enrollment sequence in EducationFacade.EnrollStudent()</text>
+<text x="35" y="716" font-size="12" fill="#374151">1. Verify documents → 2. Create student → 3. Collect fees → 4. Get course details → 5. Issue library card → 6. Send email</text>
+<text x="35" y="757" font-size="11.5" fill="#6b7280">Dashed arrows show the facade’s direct dependencies on concrete subsystem services; realization arrows show each service implements its interface.</text>
+<text x="35" y="776" font-size="11.5" fill="#6b7280">The interfaces exist in the subsystem design, while EducationFacade currently instantiates the concrete service classes directly.</text>
+</svg>

@@ -40,3 +40,6 @@ ShoppingCart.CheckOut();
 
 // Decorator Design Pattern
 CoffeeConsumer.OrderCofee();
+
+// Facade Design Pattern
+StudentPortal.ExploreServices();
