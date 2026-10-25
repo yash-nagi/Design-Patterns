@@ -30,3 +30,7 @@ foreach (var connection in connections)
 // Structureal Design Patterns: Structural design patterns are used to create relationships between objects.
 // Adapter Design Pattern
 Application.DisplayEmployeeDetails();
+
+// Bridge Design Pattern
+Customer.MakePayment(paymentGateway: "HDFC", paymentMode: "CreditCard", amount: 1000);
+Customer.MakePayment(paymentGateway: "Axis", paymentMode: "DebitCard", amount: 2390);
