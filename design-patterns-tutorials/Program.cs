@@ -34,3 +34,6 @@ Application.DisplayEmployeeDetails();
 // Bridge Design Pattern
 Customer.MakePayment(paymentGateway: "HDFC", paymentMode: "CreditCard", amount: 1000);
 Customer.MakePayment(paymentGateway: "Axis", paymentMode: "DebitCard", amount: 2390);
+
+// Composite Design Pattern
+ShoppingCart.CheckOut();
