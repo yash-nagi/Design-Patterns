@@ -52,3 +52,11 @@ Console.WriteLine("Burger 1");
 burger1.AddOns("Ketchup", "Cheese", "Beef");
 Console.WriteLine("Burger 2");
 burger2.AddOns("Mustard", "Bacon", "Chicken");
+
+// Proxy Design Pattern
+ProxyDatabase proxyDatabase = new ProxyDatabase();
+proxyDatabase.LogIn();
+Console.WriteLine(proxyDatabase.GetDataForId(1));
+proxyDatabase.LogOut();
+Console.WriteLine(proxyDatabase.GetDataForId(1));
+
