@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1010" height="830" viewBox="0 0 1010 830" font-family="Helvetica,Arial,sans-serif">
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1,1 L9,5 L1,9" fill="none" stroke="#111827" stroke-width="1.4"/></marker>
+<marker id="dia" viewBox="0 0 14 10" refX="1" refY="5" markerWidth="14" markerHeight="10" orient="auto"><path d="M1,5 L7,1 L13,5 L7,9 Z" fill="#fff" stroke="#374151" stroke-width="1.4"/></marker>
+</defs>
+<rect width="1010" height="830" fill="#ffffff"/>
+<rect x="30" y="40" width="300" height="105" rx="3" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<text x="180.0" y="58" text-anchor="middle" font-size="11" fill="#374151">Client (Program.cs)</text>
+<text x="180.0" y="74" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">Program</text>
+<line x1="30" y1="84" x2="330" y2="84" stroke="#374151" stroke-width="1.2"/>
+<text x="38" y="99" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">burgerFactory : BurgerkingFactory</text>
+<text x="38" y="116" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">burger1 : BurgerkingBurger</text>
+<text x="38" y="133" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">burger2 : BurgerkingBurger</text>
+<rect x="560" y="40" width="400" height="88" rx="3" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="760.0" y="58" text-anchor="middle" font-size="11" fill="#374151">Flyweight Factory</text>
+<text x="760.0" y="74" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">BurgerkingFactory</text>
+<line x1="560" y1="84" x2="960" y2="84" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="568" y="99" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">-_burgerCache : Dictionary&lt;string, BurgerkingBurger&gt;</text>
+<text x="568" y="116" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateBurger(name, bavrages, items) : BurgerkingBurger</text>
+<rect x="560" y="300" width="400" height="156" rx="3" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="760.0" y="318" text-anchor="middle" font-size="11" fill="#374151">Flyweight (intrinsic state shared)</text>
+<text x="760.0" y="334" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">BurgerkingBurger</text>
+<line x1="560" y1="344" x2="960" y2="344" stroke="#c2410c" stroke-width="1.2"/>
+<text x="568" y="359" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+BurgerName : string</text>
+<text x="568" y="376" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Bavrages : string</text>
+<text x="568" y="393" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+SubordinateItems : string</text>
+<text x="568" y="410" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+CreateBurger(name, bavrages, items) : void</text>
+<text x="568" y="427" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ShowBurgerDetails() : void</text>
+<text x="568" y="444" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+AddOns(sauceType, suppliment, pattyType) : void</text>
+<rect x="30" y="300" width="400" height="156" rx="3" fill="#f9fafb" stroke="#374151" stroke-width="1.6"/>
+<text x="230.0" y="318" text-anchor="middle" font-size="11" fill="#374151">Context (extrinsic state), unused in Program.cs</text>
+<text x="230.0" y="334" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">ProxyBurger</text>
+<line x1="30" y1="344" x2="430" y2="344" stroke="#374151" stroke-width="1.2"/>
+<text x="38" y="359" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+SauceType : string</text>
+<text x="38" y="376" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Suppliment : string</text>
+<text x="38" y="393" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+PattyType : string</text>
+<text x="38" y="410" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+Burger : BurgerkingBurger</text>
+<text x="38" y="427" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+ProxyBurger(sauceType, suppliment, pattyType, burger)</text>
+<text x="38" y="444" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">+AddOns(sauceType, suppliment, pattyType) : void</text>
+<path d="M332,86 H558" fill="none" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="445" y="78" text-anchor="middle" font-size="11" font-style="italic" fill="#374151">uses</text>
+<path d="M700,128 V298" fill="none" stroke="#1d4ed8" stroke-width="2" marker-end="url(#arr)" marker-start="url(#dia)"/>
+<text x="708" y="200" text-anchor="start" font-size="11.5" font-style="italic" fill="#1d4ed8">_burgerCache</text>
+<text x="708" y="216" text-anchor="start" font-size="11" font-style="italic" fill="#1d4ed8">0..*  (key = burgerName)</text>
+<path d="M880,128 V298" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="888" y="200" text-anchor="start" font-size="11.5" font-style="italic" fill="#374151">«creates»</text>
+<path d="M300,147 V240 H530 V330 H558" fill="none" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="308" y="232" text-anchor="start" font-size="11" font-style="italic" fill="#374151">«uses» AddOns()</text>
+<path d="M432,403 H558" fill="none" stroke="#374151" stroke-width="2" marker-end="url(#arr)" marker-start="url(#dia)"/>
+<text x="442" y="390" text-anchor="start" font-size="11" font-style="italic" fill="#374151">*</text>
+<text x="548" y="390" text-anchor="end" font-size="11" font-style="italic" fill="#374151">1</text>
+<text x="495" y="420" text-anchor="middle" font-size="11" font-style="italic" fill="#374151">Burger</text>
+<text x="30" y="505" text-anchor="start" font-size="12" font-style="italic" fill="#374151">Runtime view: both variables hold the SAME object, only the extrinsic values differ per call</text>
+<rect x="30" y="535" width="310" height="55" rx="3" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<text x="185.0" y="553" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">burger1</text>
+<line x1="30" y1="563" x2="340" y2="563" stroke="#374151" stroke-width="1.2"/>
+<text x="38" y="578" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">AddOns(Ketchup, Cheese, Beef)</text>
+<rect x="30" y="615" width="310" height="55" rx="3" fill="#ffffff" stroke="#374151" stroke-width="1.6"/>
+<text x="185.0" y="633" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">burger2</text>
+<line x1="30" y1="643" x2="340" y2="643" stroke="#374151" stroke-width="1.2"/>
+<text x="38" y="658" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">AddOns(Mustard, Bacon, Chicken)</text>
+<rect x="600" y="565" width="330" height="89" rx="3" fill="#ffffff" stroke="#c2410c" stroke-width="1.6"/>
+<text x="765.0" y="583" text-anchor="middle" font-size="13" font-weight="700" fill="#111827">:BurgerkingBurger  (one instance)</text>
+<line x1="600" y1="593" x2="930" y2="593" stroke="#c2410c" stroke-width="1.2"/>
+<text x="608" y="608" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">BurgerName = Whopper</text>
+<text x="608" y="625" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">Bavrages = Cocacola</text>
+<text x="608" y="642" font-size="11.5" font-family="Consolas,Menlo,monospace" fill="#1f2937">SubordinateItems = Fries</text>
+<path d="M342,565 L598,605" fill="none" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+<path d="M342,645 L598,625" fill="none" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="470" y="614" text-anchor="middle" font-size="11.5" font-style="italic" fill="#c2410c">same reference</text>
+<line x1="30" y1="722" x2="64" y2="722" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/><text x="74" y="726" font-size="11" fill="#374151">association</text>
+<line x1="200" y1="722" x2="234" y2="722" stroke="#374151" stroke-width="2" marker-start="url(#dia)" marker-end="url(#arr)"/><text x="260" y="726" font-size="11" fill="#374151">has-a (aggregation)</text>
+<line x1="410" y1="722" x2="444" y2="722" stroke="#374151" stroke-width="1.5" stroke-dasharray="6 4" marker-end="url(#arr)"/><text x="454" y="726" font-size="11" fill="#374151">dependency</text>
+<text x="30" y="755" font-size="11" fill="#6b7280">Intrinsic (shared) state lives in BurgerkingBurger; extrinsic (per-use) state is passed in through AddOns(). The factory returns the cached Whopper on the second call.</text>
+<text x="30" y="772" font-size="11" fill="#6b7280">ProxyBurger is really the Flyweight "context" (it stores extrinsic state and delegates), not a Proxy; Program.cs never uses it.</text>
+<text x="30" y="789" font-size="11" fill="#6b7280">The cache key is only burgerName, so a Whopper with Pepsi would wrongly return the Cocacola instance.</text>
+</svg>

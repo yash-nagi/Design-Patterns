@@ -43,3 +43,12 @@ CoffeeConsumer.OrderCofee();
 
 // Facade Design Pattern
 StudentPortal.ExploreServices();
+
+// Flyweight Design Pattern
+BurgerkingFactory burgerFactory = new BurgerkingFactory();
+BurgerkingBurger burger1 = burgerFactory.CreateBurger("Whopper", "Cocacola", "Fries");
+BurgerkingBurger burger2 = burgerFactory.CreateBurger("Whopper", "Cocacola", "Fries");
+Console.WriteLine("Burger 1");
+burger1.AddOns("Ketchup", "Cheese", "Beef");
+Console.WriteLine("Burger 2");
+burger2.AddOns("Mustard", "Bacon", "Chicken");
