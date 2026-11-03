@@ -60,3 +60,7 @@ Console.WriteLine(proxyDatabase.GetDataForId(1));
 proxyDatabase.LogOut();
 Console.WriteLine(proxyDatabase.GetDataForId(1));
 
+// Behavioral Design Patterns: Behavioral design patterns are used to manage algorithms, relationships, and responsibilities between objects.
+// Chain of Responsibility Design Pattern
+User user = new User(new Chatbot(new SupportExecutive(new TechTeam())));
+user.RaiseIssue(new Issue("Migration failed", "LEVEL3", "PENDING"));
