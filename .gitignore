@@ -2,3 +2,6 @@
 design-patterns-tutorials/bin/
 design-patterns-tutorials/obj/
 .DS_Store
+design-patterns-tutorials/Behavioral-Design-Patterns/CommandPattern/to-do-list/Properties/launchSettings.json
+design-patterns-tutorials/Behavioral-Design-Patterns/CommandPattern/to-do-list/bin/
+design-patterns-tutorials/Behavioral-Design-Patterns/CommandPattern/to-do-list/obj/

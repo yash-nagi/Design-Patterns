@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="to_do_list.MainPage"
+             BackgroundColor="#F7F6FC"
+             Shell.NavBarIsVisible="False">
+
+       <Grid RowDefinitions="*,Auto">
+
+              <ScrollView Grid.Row="0">
+                     <VerticalStackLayout Padding="24,45,24,20"
+                                          Spacing="22">
+
+                            <!-- Header -->
+                            <VerticalStackLayout Spacing="4">
+                                   <Label Text="Today"
+                                          FontSize="36"
+                                          FontAttributes="Bold"
+                                          TextColor="#201B32"/>
+
+                                   <Label Text="{Binding CurrentDate}"
+                                          FontSize="16"
+                                          TextColor="#77728B"/>
+                            </VerticalStackLayout>
+
+                            <!-- Progress Card -->
+                            <Border BackgroundColor="#512BD4"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 20"
+                                    Padding="24">
+
+                                   <VerticalStackLayout Spacing="14">
+
+                                          <Grid ColumnDefinitions="*,Auto">
+                                                 <Label Text="{Binding ProgressText}"
+                                                        FontSize="23"
+                                                        FontAttributes="Bold"
+                                                        TextColor="White"/>
+
+                                                 <Label Grid.Column="1"
+                                                        Text="{Binding RemainingText}"
+                                                        FontSize="15"
+                                                        TextColor="#E3DBFF"
+                                                        VerticalOptions="Center"/>
+                                          </Grid>
+
+                                          <ProgressBar Progress="{Binding Progress}"
+                                                       ProgressColor="White"
+                                                       BackgroundColor="#8F78E8"
+                                                       HeightRequest="9"/>
+
+                                   </VerticalStackLayout>
+                            </Border>
+
+                            <!-- Filters -->
+                            <HorizontalStackLayout Spacing="10">
+
+                                   <Button Text="Today"
+                                           BackgroundColor="#201B32"
+                                           TextColor="White"
+                                           CornerRadius="25"
+                                           Padding="22,10"/>
+
+                                   <Button Text="Upcoming"
+                                           BackgroundColor="White"
+                                           TextColor="#201B32"
+                                           BorderColor="#DDD9EB"
+                                           BorderWidth="1"
+                                           CornerRadius="25"
+                                           Padding="22,10"/>
+
+                                   <Button Text="Done"
+                                           BackgroundColor="White"
+                                           TextColor="#201B32"
+                                           BorderColor="#DDD9EB"
+                                           BorderWidth="1"
+                                           CornerRadius="25"
+                                           Padding="22,10"/>
+
+                            </HorizontalStackLayout>
+
+                            <!-- Task List -->
+                            <CollectionView ItemsSource="{Binding Tasks}"
+                                            SelectionMode="None">
+
+                                   <CollectionView.EmptyView>
+                                          <VerticalStackLayout Padding="20"
+                                                               Spacing="8"
+                                                               HorizontalOptions="Center">
+                                                 <Label Text="No tasks available"
+                                                        FontSize="18"
+                                                        FontAttributes="Bold"
+                                                        TextColor="#201B32"/>
+                                                 <Label Text="Create your first task."
+                                                        TextColor="#77728B"/>
+                                          </VerticalStackLayout>
+                                   </CollectionView.EmptyView>
+
+                                   <CollectionView.ItemTemplate>
+                                          <DataTemplate>
+
+                                                 <Border BackgroundColor="White"
+                                                         Stroke="#E5E1EF"
+                                                         StrokeThickness="1"
+                                                         StrokeShape="RoundRectangle 17"
+                                                         Padding="15"
+                                                         Margin="0,0,0,12">
+
+                                                        <Grid ColumnDefinitions="*,Auto"
+                                                              ColumnSpacing="12">
+
+                                                               <VerticalStackLayout Spacing="5">
+                                                                      <Label Text="{Binding Title}"
+                                                                             FontSize="16"
+                                                                             FontAttributes="Bold"
+                                                                             TextColor="#201B32"/>
+
+                                                                      <Label Text="{Binding ScheduleText}"
+                                                                             FontSize="13"
+                                                                             TextColor="#77728B"/>
+                                                               </VerticalStackLayout>
+
+                                                               <VerticalStackLayout Grid.Column="1"
+                                                                                    VerticalOptions="Center"
+                                                                                    Spacing="5">
+
+                                                                      <Label Text="{Binding Priority}"
+                                                                             FontSize="13"
+                                                                             FontAttributes="Bold"
+                                                                             HorizontalTextAlignment="End"
+                                                                             TextColor="#B45309"/>
+
+                                                                      <Label Text="{Binding Category}"
+                                                                             FontSize="11"
+                                                                             TextColor="#77728B"
+                                                                             HorizontalTextAlignment="End"/>
+
+                                                                      <Button Text="View"
+                                                                              FontSize="11"
+                                                                              Padding="12,5"
+                                                                              BackgroundColor="#EEE9FF"
+                                                                              TextColor="#512BD4"
+                                                                              CornerRadius="10"
+                                                                              Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenTaskCommand}"
+                                                                              CommandParameter="{Binding .}"/>
+
+                                                               </VerticalStackLayout>
+
+                                                        </Grid>
+                                                 </Border>
+
+                                          </DataTemplate>
+                                   </CollectionView.ItemTemplate>
+                            </CollectionView>
+
+                     </VerticalStackLayout>
+              </ScrollView>
+
+              <!-- Floating Create Button -->
+              <Button Grid.Row="0"
+                      Text="+"
+                      FontSize="32"
+                      WidthRequest="68"
+                      HeightRequest="68"
+                      CornerRadius="34"
+                      BackgroundColor="#512BD4"
+                      TextColor="White"
+                      HorizontalOptions="End"
+                      VerticalOptions="End"
+                      Margin="0,0,24,20"
+                      Command="{Binding CreateCommand}"
+                      Clicked="OnCreateTaskClicked"/>
+
+              <!-- Bottom Navigation -->
+              <Grid Grid.Row="1"
+                    BackgroundColor="White"
+                    Padding="10,12"
+                    ColumnDefinitions="*,*,*">
+
+                     <VerticalStackLayout Spacing="4"
+                                          HorizontalOptions="Center">
+                            <Label Text="☑"
+                                   FontSize="22"
+                                   TextColor="#512BD4"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Tasks"
+                                   FontSize="12"
+                                   FontAttributes="Bold"
+                                   TextColor="#512BD4"/>
+                     </VerticalStackLayout>
+
+                     <VerticalStackLayout Grid.Column="1"
+                                          Spacing="4"
+                                          HorizontalOptions="Center">
+                            <Label Text="▢"
+                                   FontSize="22"
+                                   TextColor="#77728B"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Calendar"
+                                   FontSize="12"
+                                   TextColor="#77728B"/>
+                     </VerticalStackLayout>
+
+                     <VerticalStackLayout Grid.Column="2"
+                                          Spacing="4"
+                                          HorizontalOptions="Center">
+                            <Label Text="⚙"
+                                   FontSize="22"
+                                   TextColor="#77728B"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="Settings"
+                                   FontSize="12"
+                                   TextColor="#77728B"/>
+                     </VerticalStackLayout>
+
+              </Grid>
+
+       </Grid>
+</ContentPage>

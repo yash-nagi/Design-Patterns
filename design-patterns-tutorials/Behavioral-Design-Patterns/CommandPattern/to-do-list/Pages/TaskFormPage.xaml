@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="to_do_list.TaskFormPage"
+             BackgroundColor="#F7F6FC"
+             Shell.NavBarIsVisible="False">
+
+    <Grid Padding="24,35,24,25"
+          RowDefinitions="Auto,*">
+
+        <!-- Header -->
+        <HorizontalStackLayout Grid.Row="0"
+                               Spacing="18"
+                               Margin="0,5,0,30">
+
+            <Button Text="‹"
+                    FontSize="30"
+                    BackgroundColor="Transparent"
+                    TextColor="#201B32"
+                    WidthRequest="35"
+                    Padding="0"
+                    Command="{Binding CancelCommand}"/>
+
+            <Label Text="{Binding PageTitle}"
+                   FontSize="27"
+                   FontAttributes="Bold"
+                   TextColor="#201B32"
+                   VerticalOptions="Center"/>
+
+        </HorizontalStackLayout>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Spacing="18">
+
+                <!-- Title -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Title"
+                           FontAttributes="Bold"
+                           TextColor="#201B32"/>
+
+                    <Border BackgroundColor="White"
+                            Stroke="#DCD7E9"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 15"
+                            Padding="12,0">
+
+                        <Entry Placeholder="Enter task title"
+                               Text="{Binding Title}"
+                               FontSize="17"
+                               TextColor="#201B32"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Notes -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Notes"
+                           FontAttributes="Bold"
+                           TextColor="#201B32"/>
+
+                    <Border BackgroundColor="White"
+                            Stroke="#DCD7E9"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 15"
+                            Padding="12">
+
+                        <Editor Placeholder="Add task notes..."
+                                Text="{Binding Notes}"
+                                HeightRequest="110"
+                                AutoSize="TextChanges"
+                                TextColor="#201B32"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- Date and Time -->
+                <Grid ColumnDefinitions="*,*"
+                      ColumnSpacing="12">
+
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Due date"
+                               FontAttributes="Bold"
+                               TextColor="#201B32"/>
+
+                        <DatePicker Date="{Binding DueDate}"
+                                    BackgroundColor="White"
+                                    TextColor="#201B32"
+                                    Format="dd/MM/yyyy"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Column="1"
+                                         Spacing="8">
+                        <Label Text="Time"
+                               FontAttributes="Bold"
+                               TextColor="#201B32"/>
+
+                        <TimePicker Time="{Binding DueTime}"
+                                    BackgroundColor="White"
+                                    TextColor="#201B32"
+                                    Format="hh:mm tt"/>
+                    </VerticalStackLayout>
+
+                </Grid>
+
+                <!-- Priority -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Priority"
+                           FontAttributes="Bold"
+                           TextColor="#201B32"/>
+
+                    <Picker Title="Select priority"
+                            ItemsSource="{Binding Priorities}"
+                            SelectedItem="{Binding Priority}"
+                            BackgroundColor="White"
+                            TextColor="#201B32"/>
+                </VerticalStackLayout>
+
+                <!-- Category -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="List"
+                           FontAttributes="Bold"
+                           TextColor="#201B32"/>
+
+                    <Picker Title="Select list"
+                            ItemsSource="{Binding Categories}"
+                            SelectedItem="{Binding Category}"
+                            BackgroundColor="White"
+                            TextColor="#201B32"/>
+                </VerticalStackLayout>
+
+                <!-- Reminder -->
+                <Border BackgroundColor="White"
+                        Stroke="#DCD7E9"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 15"
+                        Padding="15">
+
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Remind me 30 minutes before"
+                               FontSize="14"
+                               FontAttributes="Bold"
+                               TextColor="#201B32"
+                               VerticalOptions="Center"/>
+
+                        <Switch Grid.Column="1"
+                                IsToggled="{Binding ReminderEnabled}"
+                                OnColor="#512BD4"/>
+                    </Grid>
+                </Border>
+
+                <!-- Save -->
+                <Button Text="{Binding SaveButtonText}"
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="#512BD4"
+                        TextColor="White"
+                        FontSize="17"
+                        FontAttributes="Bold"
+                        CornerRadius="35"
+                        HeightRequest="62"
+                        Margin="0,30,0,5"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </Grid>
+</ContentPage>
