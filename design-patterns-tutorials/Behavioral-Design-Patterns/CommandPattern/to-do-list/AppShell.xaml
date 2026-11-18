@@ -7,8 +7,8 @@
     Title="to_do_list">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Title="Tasks"
+        Route="MainPage"
+        ContentTemplate="{DataTemplate local:MainPage}"/>
 
 </Shell>

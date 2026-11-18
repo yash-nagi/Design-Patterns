@@ -4,14 +4,34 @@ namespace to_do_list;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+	private readonly MainViewModel _viewModel;
 
-	public MainPage()
+	public MainPage(MainViewModel viewModel)
 	{
 		InitializeComponent();
-		BindingContext = new MainViewModel();
+
+		_viewModel = viewModel;
+		BindingContext = _viewModel;
 	}
-	private async void OnCreateTaskClicked(object sender, EventArgs e)
+
+	protected override async void OnAppearing()
+	{
+		base.OnAppearing();
+
+		//await _viewModel.LoadTasksAsync();
+		try
+		{
+			await _viewModel.LoadTasksAsync();
+		}
+		catch (Exception ex)
+		{
+			System.Diagnostics.Debug.WriteLine(
+				$"OnAppearing Error: {ex}");
+
+			await DisplayAlert("Error", ex.Message, "OK");
+		}
+	}
+	private async void CreateCommand()
 	{
 		await Shell.Current.GoToAsync(nameof(TaskFormPage));
 	}

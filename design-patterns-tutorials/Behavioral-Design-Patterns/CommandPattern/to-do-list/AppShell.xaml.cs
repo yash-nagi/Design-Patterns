@@ -8,5 +8,6 @@ public partial class AppShell : Shell
 
 		Routing.RegisterRoute(nameof(TaskFormPage), typeof(TaskFormPage));
 		Routing.RegisterRoute(nameof(TaskDetailPage), typeof(TaskDetailPage));
+		Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
 	}
 }

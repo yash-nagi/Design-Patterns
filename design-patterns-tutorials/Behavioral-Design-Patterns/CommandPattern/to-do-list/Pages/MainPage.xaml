@@ -168,8 +168,7 @@
                       HorizontalOptions="End"
                       VerticalOptions="End"
                       Margin="0,0,24,20"
-                      Command="{Binding CreateCommand}"
-                      Clicked="OnCreateTaskClicked"/>
+                      Command="{Binding CreateCommand}"/>
 
               <!-- Bottom Navigation -->
               <Grid Grid.Row="1"
