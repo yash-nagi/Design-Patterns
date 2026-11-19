@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:to_do_list.Converters"
              x:Class="to_do_list.TaskDetailPage"
              BackgroundColor="#F7F6FC"
              Shell.NavBarIsVisible="False">
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:CompletedTextConverter
+                x:Key="CompletedTextConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid Padding="24,35,24,25"
           RowDefinitions="Auto,*,Auto">
 
@@ -31,6 +37,7 @@
 
         </Grid>
 
+
         <!-- Details -->
         <ScrollView Grid.Row="1">
             <VerticalStackLayout Spacing="22">
@@ -38,7 +45,7 @@
                 <!-- Task Title -->
                 <VerticalStackLayout Spacing="12">
 
-                    <Label Text="{Binding Title}"
+                    <Label Text="{Binding TaskItem.Title}"
                            FontSize="29"
                            FontAttributes="Bold"
                            TextColor="#201B32"/>
@@ -50,7 +57,7 @@
                                 StrokeShape="RoundRectangle 20"
                                 Padding="12,7">
 
-                            <Label Text="{Binding Priority}"
+                            <Label Text="{Binding TaskItem.Priority}"
                                    FontSize="13"
                                    TextColor="#B42318"/>
                         </Border>
@@ -60,14 +67,13 @@
                                 StrokeShape="RoundRectangle 20"
                                 Padding="12,7">
 
-                            <Label Text="{Binding Category}"
+                            <Label Text="{Binding TaskItem.Category}"
                                    FontSize="13"
                                    FontAttributes="Bold"
                                    TextColor="#201B32"/>
                         </Border>
 
                     </HorizontalStackLayout>
-
                 </VerticalStackLayout>
 
                 <!-- Due Date and Reminder -->
@@ -85,12 +91,11 @@
                                    FontSize="13"
                                    TextColor="#77728B"/>
 
-                            <Label Text="{Binding DueDateText}"
+                            <Label Text="{Binding TaskItem.DueDateText}"
                                    FontSize="15"
                                    FontAttributes="Bold"
                                    TextColor="#201B32"/>
                         </VerticalStackLayout>
-
                     </Border>
 
                     <Border Grid.Column="1"
@@ -105,12 +110,11 @@
                                    FontSize="13"
                                    TextColor="#77728B"/>
 
-                            <Label Text="{Binding ReminderText}"
+                            <Label Text="{Binding TaskItem.ReminderText}"
                                    FontSize="15"
                                    FontAttributes="Bold"
                                    TextColor="#201B32"/>
                         </VerticalStackLayout>
-
                     </Border>
 
                 </Grid>
@@ -127,12 +131,11 @@
                                FontSize="14"
                                TextColor="#77728B"/>
 
-                        <Label Text="{Binding Notes}"
+                        <Label Text="{Binding TaskItem.Notes}"
                                FontSize="16"
                                TextColor="#201B32"
                                LineBreakMode="WordWrap"/>
                     </VerticalStackLayout>
-
                 </Border>
 
                 <!-- Subtasks -->
@@ -157,17 +160,16 @@
                             StrokeShape="RoundRectangle 17"
                             Padding="10">
 
-                        <CollectionView ItemsSource="{Binding Subtasks}"
+                        <CollectionView ItemsSource="{Binding TaskItem.Subtasks}"
                                         SelectionMode="None">
 
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-
                                     <Grid ColumnDefinitions="Auto,*"
                                           ColumnSpacing="12"
                                           Padding="8,12">
 
-                                        <CheckBox IsChecked="{Binding IsCompleted}"
+                                        <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}"
                                                   Color="#512BD4"
                                                   VerticalOptions="Center"/>
 
@@ -175,21 +177,22 @@
                                                Text="{Binding Title}"
                                                FontSize="15"
                                                TextColor="#201B32"
-                                               VerticalOptions="Center"/>
+                                               VerticalOptions="Center"
+                                               TextDecorations="{Binding IsCompleted,
+                       Converter={StaticResource CompletedTextConverter}}"/>
 
                                     </Grid>
-
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
 
                         </CollectionView>
-
                     </Border>
 
                 </VerticalStackLayout>
 
             </VerticalStackLayout>
         </ScrollView>
+
 
         <!-- Delete Task -->
         <Button Grid.Row="2"

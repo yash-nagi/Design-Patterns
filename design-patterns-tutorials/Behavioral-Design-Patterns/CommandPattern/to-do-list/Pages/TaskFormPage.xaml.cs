@@ -12,8 +12,4 @@ public partial class TaskFormPage : ContentPage
 		_viewModel = viewModel;
 		BindingContext = _viewModel;
 	}
-	private async Task SaveCommand()
-	{
-		await _viewModel.OnSaveTask();
-	}
 }

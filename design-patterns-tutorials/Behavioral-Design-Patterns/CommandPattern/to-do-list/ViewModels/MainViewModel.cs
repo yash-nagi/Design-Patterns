@@ -12,17 +12,18 @@ public class MainViewModel
 
     public ObservableCollection<TaskItem> Tasks { get; } = new();
     public ICommand CreateCommand { get; }
+    public ICommand OpenTaskCommand { get; }
 
     public MainViewModel(ITaskService taskService, IOperations operations)
     {
         _taskService = taskService;
         _operations = operations;
         CreateCommand = new Command(async () => await OnCreateTaskClicked());
+        OpenTaskCommand = new Command<TaskItem>(async (task) => await ViewTaskDetails(task));
     }
 
     public async Task LoadTasksAsync()
     {
-        await Shell.Current.DisplayAlert("LoadtasksAsync", "Function triggered", "OK");
         var tasks = await _taskService.GetAllTasksAsync();
 
         Tasks.Clear();
@@ -32,8 +33,15 @@ public class MainViewModel
             Tasks.Add(task);
         }
     }
-    public async Task OnCreateTaskClicked()
+    private async Task OnCreateTaskClicked()
     {
         await Shell.Current.GoToAsync(nameof(TaskFormPage));
+    }
+    private async Task ViewTaskDetails(TaskItem task)
+    {
+        if (task == null)
+            return;
+
+        await Shell.Current.GoToAsync($"{nameof(TaskDetailPage)}?taskId={task.Id}");
     }
 }

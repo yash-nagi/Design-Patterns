@@ -45,7 +45,7 @@
                             Padding="12,0">
 
                         <Entry Placeholder="Enter task title"
-                               Text="{Binding Title}"
+                               Text="{Binding _taskItem.Title}"
                                FontSize="17"
                                TextColor="#201B32"/>
                     </Border>
@@ -64,12 +64,100 @@
                             Padding="12">
 
                         <Editor Placeholder="Add task notes..."
-                                Text="{Binding Notes}"
+                                Text="{Binding _taskItem.Notes}"
                                 HeightRequest="110"
                                 AutoSize="TextChanges"
                                 TextColor="#201B32"/>
                     </Border>
                 </VerticalStackLayout>
+
+
+
+                <!-- Subtasks -->
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="Subtasks"
+                           FontSize="17"
+                           FontAttributes="Bold"
+                           TextColor="#201B32"/>
+
+                    <!-- Add Subtask Input -->
+                    <Grid ColumnDefinitions="*,Auto"
+                          ColumnSpacing="10">
+
+                        <Border BackgroundColor="White"
+                                Stroke="#DCD7E9"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 15"
+                                Padding="12,0">
+
+                            <Entry Placeholder="Enter subtask title"
+                                   Text="{Binding NewSubtaskTitle,  Mode=TwoWay}"
+                                   FontSize="15"
+                                   TextColor="#201B32"
+                                   ReturnType="Done"/>
+                        </Border>
+
+                        <Button Grid.Column="1"
+                                Text="Add"
+                                Command="{Binding AddSubtaskCommand}"
+                                BackgroundColor="#512BD4"
+                                TextColor="White"
+                                CornerRadius="12"
+                                Padding="18,0"/>
+                    </Grid>
+
+                    <!-- Subtask List -->
+                    <Border BackgroundColor="White"
+                            Stroke="#DCD7E9"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 15"
+                            Padding="10">
+
+                        <VerticalStackLayout Spacing="5">
+
+                            <Label Text="No subtasks added yet."
+                                   IsVisible="{Binding IsSubtaskListEmpty}"
+                                   TextColor="#77728B"
+                                   FontSize="14"
+                                   HorizontalOptions="Center"
+                                   Padding="10"/>
+
+                            <VerticalStackLayout
+                                BindableLayout.ItemsSource="{Binding TaskItem.Subtasks}"
+                                Spacing="5">
+
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Grid ColumnDefinitions="Auto,*"
+                                              ColumnSpacing="10"
+                                              Padding="5,8">
+
+                                            <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}"
+                                                      Color="#512BD4"
+                                                      VerticalOptions="Center"/>
+
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding Title}"
+                                                   FontSize="15"
+                                                   TextColor="#201B32"
+                                                   VerticalOptions="Center"
+                                                   LineBreakMode="WordWrap"/>
+
+                                        </Grid>
+
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+                    </Border>
+
+                </VerticalStackLayout>
+
+
 
                 <!-- Date and Time -->
                 <Grid ColumnDefinitions="*,*"
@@ -80,7 +168,7 @@
                                FontAttributes="Bold"
                                TextColor="#201B32"/>
 
-                        <DatePicker Date="{Binding DueDate}"
+                        <DatePicker Date="{Binding _taskItem.DueDate}"
                                     BackgroundColor="White"
                                     TextColor="#201B32"
                                     Format="dd/MM/yyyy"/>
@@ -92,7 +180,7 @@
                                FontAttributes="Bold"
                                TextColor="#201B32"/>
 
-                        <TimePicker Time="{Binding DueTime}"
+                        <TimePicker Time="{Binding _taskItem.DueTime}"
                                     BackgroundColor="White"
                                     TextColor="#201B32"
                                     Format="hh:mm tt"/>
@@ -108,7 +196,7 @@
 
                     <Picker Title="Select priority"
                             ItemsSource="{Binding Priorities}"
-                            SelectedItem="{Binding Priority}"
+                            SelectedItem="{Binding _taskItem.Priority, Mode=TwoWay}"
                             BackgroundColor="White"
                             TextColor="#201B32"/>
                 </VerticalStackLayout>
@@ -121,7 +209,7 @@
 
                     <Picker Title="Select list"
                             ItemsSource="{Binding Categories}"
-                            SelectedItem="{Binding Category}"
+                            SelectedItem="{Binding __taskItem.Category}"
                             BackgroundColor="White"
                             TextColor="#201B32"/>
                 </VerticalStackLayout>
@@ -141,13 +229,13 @@
                                VerticalOptions="Center"/>
 
                         <Switch Grid.Column="1"
-                                IsToggled="{Binding ReminderEnabled}"
+                                IsToggled="{Binding _taskItem.ReminderEnabled}"
                                 OnColor="#512BD4"/>
                     </Grid>
                 </Border>
 
                 <!-- Save -->
-                <Button Text="{Binding SaveButtonText}"
+                <Button Text="Add"
                         Command="{Binding SaveCommand}"
                         BackgroundColor="#512BD4"
                         TextColor="White"

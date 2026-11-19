@@ -31,8 +31,4 @@ public partial class MainPage : ContentPage
 			await DisplayAlert("Error", ex.Message, "OK");
 		}
 	}
-	private async void CreateCommand()
-	{
-		await Shell.Current.GoToAsync(nameof(TaskFormPage));
-	}
 }
