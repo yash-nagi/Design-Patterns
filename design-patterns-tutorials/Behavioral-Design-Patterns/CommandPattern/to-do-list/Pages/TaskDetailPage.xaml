@@ -33,7 +33,8 @@
                     BackgroundColor="Transparent"
                     TextColor="#201B32"
                     WidthRequest="40"
-                    Command="{Binding EditCommand}"/>
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditCommand}"
+                    CommandParameter="{Binding TaskItem}"/>
 
         </Grid>
 
@@ -194,19 +195,17 @@
         </ScrollView>
 
 
-        <!-- Delete Task -->
+        <!-- Delete button -->
         <Button Grid.Row="2"
-                Text="Delete task"
+                Text="Delete Task"
                 Command="{Binding DeleteCommand}"
-                BackgroundColor="Transparent"
-                TextColor="#C62828"
-                BorderColor="#C62828"
-                BorderWidth="1.5"
-                FontSize="17"
+                IsVisible="{Binding IsEditMode}"
+                BackgroundColor="#DC2626"
+                TextColor="White"
                 FontAttributes="Bold"
                 CornerRadius="35"
-                HeightRequest="62"
-                Margin="0,20,0,5"/>
+                HeightRequest="55"
+                Margin="0,10,0,0"/>
 
     </Grid>
 </ContentPage>

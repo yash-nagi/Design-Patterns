@@ -7,6 +7,7 @@ namespace to_do_list.Models;
 
 public class SubTask : INotifyPropertyChanged
 {
+    private string _id;
     private string _title = string.Empty;
     private bool _isCompleted;
 
@@ -29,6 +30,18 @@ public class SubTask : INotifyPropertyChanged
                 return;
 
             _isCompleted = value;
+            OnPropertyChanged();
+        }
+    }
+    public string Id
+    {
+        get => _id;
+        set
+        {
+            if (_id == value)
+                return;
+
+            _id = value;
             OnPropertyChanged();
         }
     }

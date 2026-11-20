@@ -28,6 +28,23 @@ public class TaskFormViewModel : INotifyPropertyChanged
         "Other"
     ];
     public string Category { get; set; } = "Personal";
+    private bool _isEditMode;
+
+    public bool IsEditMode
+    {
+        get => _isEditMode;
+        private set
+        {
+            _isEditMode = value;
+            OnPropertyChanged(nameof(IsEditMode));
+            OnPropertyChanged(nameof(SaveButtonText));
+            OnPropertyChanged(nameof(PageTitle));
+        }
+    }
+
+    public string SaveButtonText => IsEditMode ? "Update" : "Add";
+
+    public string PageTitle => IsEditMode ? "Edit Task" : "Add Task";
     private string _newSubtaskTitle = string.Empty;
 
     public string NewSubtaskTitle
@@ -54,23 +71,34 @@ public class TaskFormViewModel : INotifyPropertyChanged
     }
     public async Task OnSaveTask()
     {
-        if (string.IsNullOrEmpty(_taskItem.Title))
+        if (string.IsNullOrWhiteSpace(_taskItem.Title))
             return;
-        // Create task item template.
-        TaskItem taskItem = _operations.CreateTask(_taskItem.Title,
-                                                   _taskItem.Notes,
-                                                   _taskItem.Priority,
-                                                   _taskItem.Category,
-                                                   _taskItem.ReminderEnabled,
-                                                   _taskItem.DueDate,
-                                                   _taskItem.DueTime);
-        // Adding subtasks.
-        foreach (var subtask in _taskItem.Subtasks)
+
+        if (IsEditMode)
         {
-            taskItem.Subtasks.Add(subtask);
+            // Update existing task
+            await _taskService.UpdateTaskAsync(_taskItem);
         }
-        // Save task item into json.
-        await _taskService.CreateTaskAsync(taskItem);
+        else
+        {
+            // Create new task
+            TaskItem newTask = _operations.CreateTask(
+                _taskItem.Title,
+                _taskItem.Notes,
+                _taskItem.Priority,
+                _taskItem.Category,
+                _taskItem.ReminderEnabled,
+                _taskItem.DueDate,
+                _taskItem.DueTime);
+
+            foreach (var subtask in _taskItem.Subtasks)
+            {
+                newTask.Subtasks.Add(subtask);
+            }
+
+            await _taskService.CreateTaskAsync(newTask);
+        }
+
         await Shell.Current.GoToAsync("..");
     }
     private async Task OnCancelTask()
@@ -101,5 +129,30 @@ public class TaskFormViewModel : INotifyPropertyChanged
         PropertyChanged?.Invoke(
             this,
             new PropertyChangedEventArgs(propertyName));
+    }
+    public void LoadTask(TaskItem task)
+    {
+        _taskItem.Id = task.Id;
+        _taskItem.Title = task.Title;
+        _taskItem.Notes = task.Notes;
+        _taskItem.DueDate = task.DueDate;
+        _taskItem.DueTime = task.DueTime;
+        _taskItem.Priority = task.Priority;
+        _taskItem.Category = task.Category;
+        _taskItem.ReminderEnabled = task.ReminderEnabled;
+
+        _taskItem.Subtasks.Clear();
+
+        foreach (var subtask in task.Subtasks)
+        {
+            _taskItem.Subtasks.Add(new SubTask
+            {
+                Id = subtask.Id,
+                Title = subtask.Title,
+                IsCompleted = subtask.IsCompleted
+            });
+        }
+
+        IsEditMode = true;
     }
 }

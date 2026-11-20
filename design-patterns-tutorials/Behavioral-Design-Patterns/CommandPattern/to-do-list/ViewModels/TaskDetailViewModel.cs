@@ -13,6 +13,7 @@ public class TaskDetailViewModel : INotifyPropertyChanged
     public event PropertyChangedEventHandler? PropertyChanged;
     public ICommand BackCommand { get; }
     public ICommand EditCommand { get; }
+    public ICommand DeleteCommand { get; }
     public TaskItem? _taskItem { get; private set; }
     public TaskItem? TaskItem
     {
@@ -22,6 +23,17 @@ public class TaskDetailViewModel : INotifyPropertyChanged
             _taskItem = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(SubtaskProgress));
+        }
+    }
+    private bool _isEditMode;
+
+    public bool IsEditMode
+    {
+        get => _isEditMode;
+        set
+        {
+            _isEditMode = value;
+            OnPropertyChanged();
         }
     }
     public string SubtaskProgress
@@ -42,7 +54,8 @@ public class TaskDetailViewModel : INotifyPropertyChanged
         _taskService = taskService;
         _operations = operations;
         BackCommand = new Command(async () => await GoBack());
-        EditCommand = new Command(async () => await EditTask());
+        EditCommand = new Command<TaskItem>(async (task) => await EditTask(task));
+        DeleteCommand = new Command(async () => await DeleteTask());
     }
     public async Task LoadTaskAsync(Guid taskId)
     {
@@ -65,6 +78,7 @@ public class TaskDetailViewModel : INotifyPropertyChanged
                 }
             };
         }
+        IsEditMode = true;
     }
     protected void OnPropertyChanged(
          [CallerMemberName] string? propertyName = null)
@@ -77,8 +91,48 @@ public class TaskDetailViewModel : INotifyPropertyChanged
     {
         await Shell.Current.GoToAsync("..");
     }
-    private async Task EditTask()
+    private async Task EditTask(TaskItem task)
     {
+        if (task == null)
+            return;
 
+        var parameters = new Dictionary<string, object>
+        {
+            { "TaskItem", task }
+        };
+        await Shell.Current.GoToAsync(nameof(TaskFormPage), parameters);
+    }
+    private async Task DeleteTask()
+    {
+        if (!IsEditMode)
+            return;
+
+        bool confirm = await Shell.Current.DisplayAlert(
+            "Delete Task",
+            "Are you sure you want to delete this task?",
+            "Yes",
+            "No");
+
+        if (!confirm)
+            return;
+
+        try
+        {
+            await _taskService.DeleteTaskAsync(TaskItem.Id);
+
+            await Shell.Current.DisplayAlert(
+                "Deleted",
+                "Task deleted successfully.",
+                "OK");
+
+            await Shell.Current.GoToAsync("..");
+        }
+        catch (Exception ex)
+        {
+            await Shell.Current.DisplayAlert(
+                "Error",
+                $"Unable to delete task: {ex.Message}",
+                "OK");
+        }
     }
 }

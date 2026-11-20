@@ -235,7 +235,7 @@
                 </Border>
 
                 <!-- Save -->
-                <Button Text="Add"
+                <Button Text="{Binding SaveButtonText}"
                         Command="{Binding SaveCommand}"
                         BackgroundColor="#512BD4"
                         TextColor="White"
