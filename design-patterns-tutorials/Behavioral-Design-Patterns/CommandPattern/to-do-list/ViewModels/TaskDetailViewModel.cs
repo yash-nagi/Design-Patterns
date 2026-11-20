@@ -3,17 +3,21 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using to_do_list.Models;
 using to_do_list.Services;
+using to_do_list.Commands;
 
 namespace to_do_list.ViewModels;
 
 public class TaskDetailViewModel : INotifyPropertyChanged
 {
     private readonly ITaskService _taskService;
-    private readonly IOperations _operations;
+    private readonly CommandInvoker _commandInvoker;
     public event PropertyChangedEventHandler? PropertyChanged;
     public ICommand BackCommand { get; }
     public ICommand EditCommand { get; }
     public ICommand DeleteCommand { get; }
+    public ICommand ToggleSubtaskCommand { get; }
+    public ICommand UndoCommand { get; }
+    public ICommand RedoCommand { get; }
     public TaskItem? _taskItem { get; private set; }
     public TaskItem? TaskItem
     {
@@ -49,13 +53,19 @@ public class TaskDetailViewModel : INotifyPropertyChanged
             return $"{completed}/{total} completed";
         }
     }
-    public TaskDetailViewModel(ITaskService taskService, IOperations operations)
+    public TaskDetailViewModel(
+        ITaskService taskService,
+        CommandInvoker commandInvoker)
     {
         _taskService = taskService;
-        _operations = operations;
+        _commandInvoker = commandInvoker;
         BackCommand = new Command(async () => await GoBack());
         EditCommand = new Command<TaskItem>(async (task) => await EditTask(task));
         DeleteCommand = new Command(async () => await DeleteTask());
+        ToggleSubtaskCommand = new Command<SubTask>(
+            async (subtask) => await ToggleSubtask(subtask));
+        UndoCommand = new Command(async () => await Undo());
+        RedoCommand = new Command(async () => await Redo());
     }
     public async Task LoadTaskAsync(Guid taskId)
     {
@@ -69,13 +79,7 @@ public class TaskDetailViewModel : INotifyPropertyChanged
             subtask.PropertyChanged += (_, args) =>
             {
                 if (args.PropertyName == nameof(SubTask.IsCompleted))
-                {
                     OnPropertyChanged(nameof(SubtaskProgress));
-
-                    // Persist the updated task.
-                    MainThread.BeginInvokeOnMainThread(
-                        async () => await _taskService.UpdateTaskAsync(TaskItem));
-                }
             };
         }
         IsEditMode = true;
@@ -104,10 +108,10 @@ public class TaskDetailViewModel : INotifyPropertyChanged
     }
     private async Task DeleteTask()
     {
-        if (!IsEditMode)
+        if (!IsEditMode || TaskItem == null)
             return;
 
-        bool confirm = await Shell.Current.DisplayAlert(
+        bool confirm = await Shell.Current.DisplayAlertAsync(
             "Delete Task",
             "Are you sure you want to delete this task?",
             "Yes",
@@ -118,9 +122,10 @@ public class TaskDetailViewModel : INotifyPropertyChanged
 
         try
         {
-            await _taskService.DeleteTaskAsync(TaskItem.Id);
+            await _commandInvoker.ExecuteAsync(
+                new DeleteTaskCommand(_taskService, TaskItem));
 
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 "Deleted",
                 "Task deleted successfully.",
                 "OK");
@@ -129,10 +134,34 @@ public class TaskDetailViewModel : INotifyPropertyChanged
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert(
+            await Shell.Current.DisplayAlertAsync(
                 "Error",
                 $"Unable to delete task: {ex.Message}",
                 "OK");
         }
+    }
+    private async Task ToggleSubtask(SubTask subtask)
+    {
+        if (TaskItem == null)
+            return;
+
+        await _commandInvoker.ExecuteAsync(
+            new ToggleSubtaskCommand(
+                _taskService,
+                TaskItem,
+                subtask,
+                !subtask.IsCompleted));
+
+        OnPropertyChanged(nameof(SubtaskProgress));
+    }
+    private async Task Undo()
+    {
+        await _commandInvoker.UndoAsync();
+        OnPropertyChanged(nameof(SubtaskProgress));
+    }
+    private async Task Redo()
+    {
+        await _commandInvoker.RedoAsync();
+        OnPropertyChanged(nameof(SubtaskProgress));
     }
 }

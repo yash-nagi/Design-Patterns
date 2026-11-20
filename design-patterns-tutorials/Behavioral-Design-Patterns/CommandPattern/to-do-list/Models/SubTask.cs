@@ -7,7 +7,7 @@ namespace to_do_list.Models;
 
 public class SubTask : INotifyPropertyChanged
 {
-    private string _id;
+    private string _id = string.Empty;
     private string _title = string.Empty;
     private bool _isCompleted;
 

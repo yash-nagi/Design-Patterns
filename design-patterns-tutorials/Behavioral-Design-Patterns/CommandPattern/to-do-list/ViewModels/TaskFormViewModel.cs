@@ -1,6 +1,7 @@
 using System.Windows.Input;
 using to_do_list.Models;
 using to_do_list.Services;
+using to_do_list.Commands;
 using System.ComponentModel;
 
 namespace to_do_list.ViewModels;
@@ -9,6 +10,8 @@ public class TaskFormViewModel : INotifyPropertyChanged
 {
     private readonly ITaskService _taskService;
     private readonly IOperations _operations;
+    private readonly CommandInvoker _commandInvoker;
+    private TaskItem? _originalTask;
     public TaskItem _taskItem { get; set; } = new();
     public List<string> Priorities { get; set; } =
     [
@@ -53,21 +56,29 @@ public class TaskFormViewModel : INotifyPropertyChanged
         set
         {
             _newSubtaskTitle = value;
-            OnPropertyChanged(NewSubtaskTitle);
+            OnPropertyChanged(nameof(NewSubtaskTitle));
         }
     }
     public ICommand SaveCommand { get; }
     public ICommand CancelCommand { get; }
     public ICommand AddSubtaskCommand { get; }
+    public ICommand UndoCommand { get; }
+    public ICommand RedoCommand { get; }
     public event PropertyChangedEventHandler? PropertyChanged;
-    public TaskFormViewModel(ITaskService taskService, IOperations operations)
+    public TaskFormViewModel(
+        ITaskService taskService,
+        IOperations operations,
+        CommandInvoker commandInvoker)
     {
         _taskService = taskService;
         _operations = operations;
+        _commandInvoker = commandInvoker;
 
         SaveCommand = new Command(async () => await OnSaveTask());
         CancelCommand = new Command(async () => await OnCancelTask());
         AddSubtaskCommand = new Command(async () => await AddSubtask());
+        UndoCommand = new Command(async () => await Undo());
+        RedoCommand = new Command(async () => await Redo());
     }
     public async Task OnSaveTask()
     {
@@ -76,8 +87,16 @@ public class TaskFormViewModel : INotifyPropertyChanged
 
         if (IsEditMode)
         {
-            // Update existing task
-            await _taskService.UpdateTaskAsync(_taskItem);
+            if (_originalTask == null)
+                return;
+
+            var command = new UpdateTaskCommand(
+                _taskService,
+                _taskItem,
+                _originalTask,
+                Clone(_taskItem));
+
+            await _commandInvoker.ExecuteAsync(command);
         }
         else
         {
@@ -96,7 +115,8 @@ public class TaskFormViewModel : INotifyPropertyChanged
                 newTask.Subtasks.Add(subtask);
             }
 
-            await _taskService.CreateTaskAsync(newTask);
+            await _commandInvoker.ExecuteAsync(
+                new CreateTaskCommand(_taskService, newTask));
         }
 
         await Shell.Current.GoToAsync("..");
@@ -112,14 +132,24 @@ public class TaskFormViewModel : INotifyPropertyChanged
         if (string.IsNullOrWhiteSpace(title))
             return;
 
-        _taskItem.Subtasks.Add(new SubTask
-        {
-            Title = title,
-            IsCompleted = false
-        });
+        await _commandInvoker.ExecuteAsync(
+            new AddSubtaskCommand(
+                IsEditMode ? _taskService : null,
+                _taskItem,
+                title));
 
         NewSubtaskTitle = string.Empty;
 
+        OnPropertyChanged(nameof(IsSubtaskListEmpty));
+    }
+    private async Task Undo()
+    {
+        await _commandInvoker.UndoAsync();
+        OnPropertyChanged(nameof(IsSubtaskListEmpty));
+    }
+    private async Task Redo()
+    {
+        await _commandInvoker.RedoAsync();
         OnPropertyChanged(nameof(IsSubtaskListEmpty));
     }
     public bool IsSubtaskListEmpty =>
@@ -132,6 +162,7 @@ public class TaskFormViewModel : INotifyPropertyChanged
     }
     public void LoadTask(TaskItem task)
     {
+        _originalTask = Clone(task);
         _taskItem.Id = task.Id;
         _taskItem.Title = task.Title;
         _taskItem.Notes = task.Notes;
@@ -154,5 +185,31 @@ public class TaskFormViewModel : INotifyPropertyChanged
         }
 
         IsEditMode = true;
+    }
+    private static TaskItem Clone(TaskItem task)
+    {
+        var clone = new TaskItem
+        {
+            Id = task.Id,
+            Title = task.Title,
+            Notes = task.Notes,
+            DueDate = task.DueDate,
+            DueTime = task.DueTime,
+            Priority = task.Priority,
+            Category = task.Category,
+            ReminderEnabled = task.ReminderEnabled
+        };
+
+        foreach (var subtask in task.Subtasks)
+        {
+            clone.Subtasks.Add(new SubTask
+            {
+                Id = subtask.Id,
+                Title = subtask.Title,
+                IsCompleted = subtask.IsCompleted
+            });
+        }
+
+        return clone;
     }
 }

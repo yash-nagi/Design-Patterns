@@ -36,6 +36,19 @@
                     Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.EditCommand}"
                     CommandParameter="{Binding TaskItem}"/>
 
+            <HorizontalStackLayout Grid.Column="1"
+                                   HorizontalOptions="End"
+                                   Spacing="4">
+                <Button Text="Undo"
+                        Command="{Binding UndoCommand}"
+                        BackgroundColor="Transparent"
+                        TextColor="#512BD4"/>
+                <Button Text="Redo"
+                        Command="{Binding RedoCommand}"
+                        BackgroundColor="Transparent"
+                        TextColor="#512BD4"/>
+            </HorizontalStackLayout>
+
         </Grid>
 
 
@@ -170,8 +183,10 @@
                                           ColumnSpacing="12"
                                           Padding="8,12">
 
-                                        <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}"
+                                        <CheckBox IsChecked="{Binding IsCompleted, Mode=OneWay}"
                                                   Color="#512BD4"
+                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ToggleSubtaskCommand}"
+                                                  CommandParameter="{Binding .}"
                                                   VerticalOptions="Center"/>
 
                                         <Label Grid.Column="1"

@@ -27,6 +27,18 @@
                    TextColor="#201B32"
                    VerticalOptions="Center"/>
 
+            <Button Text="Undo"
+                    Command="{Binding UndoCommand}"
+                    BackgroundColor="Transparent"
+                    TextColor="#512BD4"
+                    Padding="8,0"/>
+
+            <Button Text="Redo"
+                    Command="{Binding RedoCommand}"
+                    BackgroundColor="Transparent"
+                    TextColor="#512BD4"
+                    Padding="8,0"/>
+
         </HorizontalStackLayout>
 
         <ScrollView Grid.Row="1">
@@ -209,7 +221,7 @@
 
                     <Picker Title="Select list"
                             ItemsSource="{Binding Categories}"
-                            SelectedItem="{Binding __taskItem.Category}"
+                            SelectedItem="{Binding _taskItem.Category, Mode=TwoWay}"
                             BackgroundColor="White"
                             TextColor="#201B32"/>
                 </VerticalStackLayout>

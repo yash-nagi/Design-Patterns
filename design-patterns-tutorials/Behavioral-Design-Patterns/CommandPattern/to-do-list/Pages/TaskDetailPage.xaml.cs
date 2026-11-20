@@ -25,7 +25,7 @@ public partial class TaskDetailPage : ContentPage, IQueryAttributable
 		}
 		catch (Exception ex)
 		{
-			await DisplayAlert("Error", ex.Message, "OK");
+			await DisplayAlertAsync("Error", ex.Message, "OK");
 		}
 	}
 }

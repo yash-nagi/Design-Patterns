@@ -23,6 +23,22 @@
                                           TextColor="#77728B"/>
                             </VerticalStackLayout>
 
+                            <HorizontalStackLayout HorizontalOptions="End"
+                                                   Spacing="8">
+                                   <Button Text="Undo"
+                                           Command="{Binding UndoCommand}"
+                                           BackgroundColor="#EEE9FF"
+                                           TextColor="#512BD4"
+                                           CornerRadius="16"
+                                           Padding="16,8"/>
+                                   <Button Text="Redo"
+                                           Command="{Binding RedoCommand}"
+                                           BackgroundColor="#EEE9FF"
+                                           TextColor="#512BD4"
+                                           CornerRadius="16"
+                                           Padding="16,8"/>
+                            </HorizontalStackLayout>
+
                             <!-- Progress Card -->
                             <Border BackgroundColor="#512BD4"
                                     StrokeThickness="0"

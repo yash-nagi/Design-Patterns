@@ -28,7 +28,7 @@ public partial class MainPage : ContentPage
 			System.Diagnostics.Debug.WriteLine(
 				$"OnAppearing Error: {ex}");
 
-			await DisplayAlert("Error", ex.Message, "OK");
+			await DisplayAlertAsync("Error", ex.Message, "OK");
 		}
 	}
 }
